@@ -57,9 +57,9 @@ keystone.createList('User', {
       type: Checkbox,
       // Field-level access controls
       // Here, we set more restrictive field access so a non-admin cannot make themselves admin.
-      // access: {
-      //   update: access.userIsAdmin,
-      // },
+      access: {
+        update: access.userIsAdmin,
+      },
     },
     password: {
       type: Password,
@@ -67,13 +67,13 @@ keystone.createList('User', {
     },
   },
   // List-level access controls
-  // access: {
-  //   read: access.userIsAdminOrOwner,
-  //   update: access.userIsAdminOrOwner,
-  //   create: access.userIsAdmin,
-  //   delete: access.userIsAdmin,
-  //   auth: true,
-  // },
+  access: {
+    read: access.userIsAdminOrOwner,
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
 });
 
 keystone.createList('Answer', {
@@ -87,13 +87,13 @@ keystone.createList('Answer', {
     },
   },
   // List-level access controls
-  // access: {
-  //   read: true,
-  //   update: access.userIsAdminOrOwner,
-  //   create: access.userIsAdmin,
-  //   delete: access.userIsAdmin,
-  //   auth: true,
-  // },
+  access: {
+    read: true,
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
 });
 
 keystone.createList('Question', {
@@ -119,13 +119,13 @@ keystone.createList('Question', {
     },
   },
   // List-level access controls
-  // access: {
-  //   read: true,
-  //   update: access.userIsAdminOrOwner,
-  //   create: access.userIsAdmin,
-  //   delete: access.userIsAdmin,
-  //   auth: true,
-  // },
+  access: {
+    read: true,
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
 });
 
 keystone.createList('Feedback', {
@@ -147,13 +147,13 @@ keystone.createList('Feedback', {
     },
   },
   // List-level access controls
-  // access: {
-  //   read: true,
-  //   update: access.userIsAdminOrOwner,
-  //   create: access.userIsAdmin,
-  //   delete: access.userIsAdmin,
-  //   auth: true,
-  // },
+  access: {
+    read: true,
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
 });
 
 keystone.createList('Quiz', {
@@ -187,13 +187,13 @@ keystone.createList('Quiz', {
     },
   },
   // List-level access controls
-  // access: {
-  //   read: true,
-  //   update: access.userIsAdminOrOwner,
-  //   create: access.userIsAdmin,
-  //   delete: access.userIsAdmin,
-  //   auth: true,
-  // },
+  access: {
+    read: true,
+    update: access.userIsAdminOrOwner,
+    create: access.userIsAdmin,
+    delete: access.userIsAdmin,
+    auth: true,
+  },
 });
 
 const authStrategy = keystone.createAuthStrategy({
@@ -208,7 +208,7 @@ module.exports = {
     new AdminUIApp({
       name: PROJECT_NAME,
       enableDefaultRoute: true,
-      // authStrategy,
+      authStrategy,
     }),
   ],
   configureExpress: app => {
