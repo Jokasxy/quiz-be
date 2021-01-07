@@ -112,10 +112,12 @@ keystone.createList('Question', {
       type: Relationship,
       ref: 'Answer',
       many: true,
+      isRequired: true,
     },
     correct: {
       type: Relationship,
       ref: 'Answer',
+      isRequired: true,
     },
   },
   // List-level access controls
